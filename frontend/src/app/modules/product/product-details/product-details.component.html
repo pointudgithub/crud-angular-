@@ -1,0 +1,25 @@
+<mat-card class="detail mat-elevation-z2">
+  <mat-card-title class="detail__title">
+    Producto #{{product.id}}
+  </mat-card-title>
+  <mat-card-content class="detail__content">
+    <section class="detail__wrapper">
+      <div class="first row">
+        <h3>
+          {{product.name}}
+        </h3>
+        <strong>
+          COP ${{product.price}}
+        </strong>
+      </div>
+      <div class="second row">
+        <h4>
+          Descripción: {{product.description}}
+        </h4>
+        <h4>
+          Especificaciones técnicas: {{product.specifications}}
+        </h4>
+      </div>
+    </section>
+  </mat-card-content>
+</mat-card>

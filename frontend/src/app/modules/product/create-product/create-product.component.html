@@ -1,0 +1,90 @@
+<div class="form__container">
+  <form [formGroup]="createProductForm">
+    <div class="form__field">
+      <label>Nombre:</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Apple MacBook Pro"
+        [(ngModel)]="product.name"
+        formControlName="productName"
+        autofocus
+      >
+      <app-validation-message
+        *ngIf="createProductForm.get('productName').errors?.required"
+        textContent="Campo Obligatorio"
+      >
+      </app-validation-message>
+    </div>
+
+    <div class="form__field">
+      <label>Descripción</label>
+      <input
+        type="text"
+        name="description"
+        maxlength="1000"
+        placeholder="Nuevo macbook gran opción para tu trabajo..."
+        [(ngModel)]="product.description"
+        formControlName="productDescription"
+      >
+      <app-validation-message
+        *ngIf="createProductForm.get('productDescription').errors?.required"
+        textContent="Campo Obligatorio"
+      >
+      </app-validation-message>
+    </div>
+
+    <div class="form__field">
+      <label>Precio</label>
+      <input
+        type="text"
+        name="price"
+        placeholder="COP $4.309.000,00"
+        [(ngModel)]="product.price"
+        (keyup)="formatNumberToCop()"
+        formControlName="productPrice"
+      >
+      <app-validation-message
+        *ngIf="createProductForm.get('productPrice').errors?.required"
+        textContent="Campo Obligatorio"
+      >
+      </app-validation-message>
+    </div>
+
+    <div class="form__field">
+      <label>Especificaciones técnicas</label>
+      <input
+        type="text"
+        name="specifications"
+        maxlength="1000"
+        placeholder="Procesador: i9-9900K"
+        [(ngModel)]="product.specifications"
+        formControlName="productSpecifications"
+      >
+      <app-validation-message
+        *ngIf="createProductForm.get('productSpecifications').errors?.required"
+        textContent="Campo Obligatorio"
+      >
+      </app-validation-message>
+    </div>
+
+    <app-action-button
+      class="submit btn"
+      type="submit"
+      textContent="Guardar"
+      (click)="handleSubmitClick()"
+      *ngIf="!createProductForm.invalid; else disabled"
+    >
+    </app-action-button>
+
+    <ng-template #disabled>
+      <app-action-button
+        class="submit btn disabled"
+        type="submit"
+        textContent="Guardar"
+      >
+      </app-action-button>
+    </ng-template>
+
+  </form>
+</div>

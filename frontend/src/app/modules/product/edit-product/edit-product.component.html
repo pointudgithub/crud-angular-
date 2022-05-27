@@ -1,0 +1,36 @@
+<section class="modal container">
+  <div class="edit-container">
+    <form>
+      <div class="form__field">
+        <label>Nombre</label>
+        <input type="text" name="name" [(ngModel)]="product.name">
+      </div>
+
+      <div class="form__field">
+        <label>Descripción</label>
+        <input type="text" name="description" maxlength="1000" [(ngModel)]="product.description">
+      </div>
+
+      <div class="form__field">
+        <label>Precio</label>
+        <input type="text" name="price" [(ngModel)]="product.price">
+      </div>
+
+      <div class="form__field">
+        <label>Especificaciones técnicas</label>
+        <input type="text" name="specifications" maxlength="1000" [(ngModel)]="product.specifications">
+      </div>
+
+      <div class="form__options">
+        <button (click)="closeModal()">
+          Cancelar
+        </button>
+
+        <button (click)="handleEditClick()">
+            Guardar Cambios
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>
